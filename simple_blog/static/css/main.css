@@ -1,0 +1,10 @@
+.footer{
+    color: white;
+    padding: 20px;
+}
+.container{
+    min-height: 500px;   
+}
+.error{
+    color: red;
+}

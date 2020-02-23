@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+
+    {% block title %}
+        {% if title %}
+            <title>Blog |{{ title }}</title>
+        {% else %}
+            <title>Blog</title>
+        {% endif %}
+    {% endblock title %}
+        
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #038bec;">
+            <a class="navbar-brand" href="{{ url_for('index') }}"><h1>Blog</h1></a>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                aria-expanded="false" aria-label="Toggle navigation"></button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('sign_up') }}">Sign Up<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                    </li>
+               
+            </div>
+        </nav>
+    </header>
+    <div class="main container">
+        
+        {% block body %}
+            
+        {% endblock body %}
+            
+    </div>
+    <footer class="bg-primary row footer">
+        <div class="col md-sm">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam ad porro in? Ullam, eos cupiditate quam, deserunt dolorum eaque consectetur, est sed rerum modi officiis dolor placeat. Necessitatibus, id ab.
+        </div>
+        <div class="col md-sm">
+            &copy; Simple Blog
+        </div>      
+    </footer>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>
