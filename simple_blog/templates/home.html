@@ -3,14 +3,14 @@
 <div class="row">
 <div class="col md-4 ">
     <ul class="list-group">
-        <li class="list-group-item bg-primary"><a href="">Create A Post</a></li>
+        <li class="list-group-item bg-primary"><a href="{{url_for('create_post')}}">Create A Post</a></li>
         <li class="list-group-item bg-primary"><a href="">View Your Posts</a></li>
         <li class="list-group-item bg-primary"><a href="{{ url_for('logout') }}">Logout</a></li>
     </ul>
 </div>
 <div class="col col-md-10">
   <table class="table table-striped">
-     <thead>
+     <thead class="bg-primary">
         <tr>
             <th>Title</th>
             <th>Date Posted</th>

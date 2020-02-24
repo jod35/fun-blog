@@ -83,22 +83,24 @@ def home_page():
     }
     return render_template('home.html',**context)
 
-@app.route('/add',methods=['POST'])
 @login_required
+@app.route('/add',methods=['POST','GET'])
 def create_post():
-    title=request.form.get('post_title')
-    content_paragraph1=request.form.get('post_content1')
-    content_paragraph2=request.form.get('post_content2')
-    content_paragraph3=request.form.get('post_content3')
+    if request.method =='POST':
+        title=request.form.get('post_title')
+        content_paragraph1=request.form.get('post_content1')
+        content_paragraph2=request.form.get('post_content2')
+        content_paragraph3=request.form.get('post_content3')
     
-    new_post=Post(
-        title=title,
-        content_paragraph1=content_paragraph1,
-        content_paragraph2=content_paragraph2,
-        content_paragraph3=content_paragraph3,
-        author=current_user
-    )
-    db.session.add(new_post)
-    db.session.commit()
-    flash("Your Post is now live")
-    return redirect(url_for('home_page'))
+        new_post=Post(
+            title=title,
+            content_paragraph1=content_paragraph1,
+            content_paragraph2=content_paragraph2,
+            content_paragraph3=content_paragraph3,
+            author=current_user
+        )
+        db.session.add(new_post)
+        db.session.commit()
+        flash("Your Post is now live")
+        return redirect(url_for('home_page'))
+    return render_template('addpost.html')
