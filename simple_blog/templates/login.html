@@ -11,6 +11,7 @@
     {% endif %}
 {% endwith %}
     
+<form action="{{ url_for('login') }}" method="post">
     <div class="loginform">
         <div class="head bg-primary">
             <h3>Sign In</h3>
@@ -27,5 +28,6 @@
             {{ form.submit(class='btn btn-primary') }}
         </div>
     </div>
+</form>
 {% endblock body %}
     
