@@ -61,9 +61,9 @@ def login():
 
     user_exist=email_exists or username_exists
 
-    if user_exist and generate_password_hash(user_exist.password_hash,password):
+    if user_exist and check_password_hash(user_exist.password_hash,password):
         login_user(user_exist)
-        return redirect('home_page')
+        return redirect(url_for('home_page'))
 
     context={
         'form':form
