@@ -20,10 +20,10 @@
      <tbody>
          <tr>
             {% for post in posts %}
-            <td></td>
+            <td>{{post.title}}</td>
             <td>{{ post.date_created.strftime("%D %M %Y")}}</td>
-            <td class="bg-success"><a href="" class=""><i class="fa fa-edit fa-2x"></i></a></td>
-            <td class="bg-danger"><a href=""><i class="fa fa-trash fa-2x" ></i></a></td>
+            <td class=""><a href="" class=""><i class="fa fa-edit fa-2x success"></i></a></td>
+            <td class=""><a href=""><i class="fa fa-trash fa-2x danger" ></i></a></td>
         {% endfor %}
          </tr>
      </tbody>

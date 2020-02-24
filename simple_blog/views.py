@@ -76,6 +76,7 @@ def logout():
    return redirect(url_for('index'))
 
 @app.route('/home',methods=['GET', 'POST'])
+@login_required
 def home_page():
     posts=Post.query.all()    
     context={
@@ -83,8 +84,8 @@ def home_page():
     }
     return render_template('home.html',**context)
 
-@login_required
 @app.route('/add',methods=['POST','GET'])
+@login_required
 def create_post():
     if request.method =='POST':
         title=request.form.get('post_title')

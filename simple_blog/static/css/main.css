@@ -8,6 +8,12 @@
 .container{
     min-height: 500px;   
 }
+.success{
+    color: green;
+}
+.danger{
+    color: red;
+}
 .list-group-item a{
     color: white;
 }

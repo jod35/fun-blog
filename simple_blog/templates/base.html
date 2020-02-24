@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
      
     {% block title %}
-        {% if title %}
+        {% if title %}  
             <title>Blog |{{ title }}</title>
         {% else %}
             <title>Blog</title>
@@ -62,5 +62,6 @@
         </div>      
     </footer>
     <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+
 </body>
 </html>
