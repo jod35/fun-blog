@@ -70,6 +70,14 @@ def login():
     }
     return render_template('login.html',**context)
 
+@app.route('/logout')
+def logout():
+   logout_user()
+   return redirect(url_for('index'))
+
 @app.route('/home')
 def home_page():
-    return render_template('home.html')
+    context={
+       
+    }
+    return render_template('home.html',**context)
