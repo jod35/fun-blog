@@ -5,6 +5,20 @@
 .container{
     min-height: 500px;   
 }
+.form{
+    width: 40%;
+    margin: auto;
+    border: 1px rgba(0, 0, 0, 0.096) solid;
+    padding: 20px;
+}
+.head{
+    color: white;
+    text-align: center;
+    border-radius: 3px;
+}
+.main{
+    padding: 20px;
+}
 .error{
     color: red;
 }

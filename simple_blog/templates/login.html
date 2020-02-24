@@ -1,5 +1,20 @@
 {% extends 'base.html' %}
 {% block body %}
-    
+    <div class="form">
+        <div class="head bg-primary">
+            <h3>Sign In</h3>
+        </div>
+        <div class="form-group">
+            {{ form.prompt.label }}
+            {{ form.prompt(class='form-control') }}
+        </div>
+        <div class="form-group">
+            {{ form.password.label }}
+            {{ form.password(class='form-control') }}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class='btn btn-primary') }}
+        </div>
+    </div>
 {% endblock body %}
     

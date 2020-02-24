@@ -1,38 +1,54 @@
 {% extends 'base.html' %}
 {% block body %}
-    <div class="form">
-       <h1>Create An Account</h1>
-       
-        <form action="{{url_for('sign_up')}}" method="post">
-            <div class="form-group">
-                <label for="username">{{form.username.label}}</label>
-                {% if form.username.errors %}
-                {% for error in form.username.errors %}<small class="error">{{ error }}</small>{% endfor %}
-                {% endif %}
-                {{ form.username(class='form-control') }}
-               
-            </div>
-            <div class="form-group">
-                <label for="email">{{form.email.label}}</label>
-                {{ form.email(class='form-control') }}
-            </div>
-        
-            <div class="form-group">
-                <label for="username">{{form.password.label}}</label>
-                {{ form.password(class='form-control') }}
-            </div>
-
-            <div class="form-group">
-                <label for="username">{{form.confirm.label}}</label>
-                {{ form.confirm(class='form-control') }}
-            </div>
-
-            <div class="form-group">
-                {{ form.submit(class='btn btn-primary') }}
-            </div>
-       </form>
-
-
-    </div>
+ <div class="row main">
+     <div class="col md-4">
+         <img src="{{url_for('static',filename='images/grid20.jpg')}}" alt="" srcset="">
+     </div>
+     <div class="col md-8">
+        <div class="form">
+            <h1>Create An Account</h1>
+             {% with messages =get_flashed_messages()%}
+                 {% if messages %}
+                     {% for message in messages %}
+                         <div class="alert alert-danger">
+                             {{ message }}
+                         </div>
+                     {% endfor %}
+                 {% endif %}
+             {% endwith %}
+                 
+             <form action="{{url_for('sign_up')}}" method="post">
+                 <div class="form-group">
+                     {{ form.hidden_tag() }}
+                     <label for="username">{{form.username.label}}</label>
+                     {% if form.username.errors %}
+                     {% for error in form.username.errors %}<small class="error">{{ error }}</small>{% endfor %}
+                     {% endif %}
+                     {{ form.username(class='form-control') }}
+                 </div>
+                 <div class="form-group">
+                     <label for="email">{{form.email.label}}</label>
+                     {{ form.email(class='form-control') }}
+                 </div>
+             
+                 <div class="form-group">
+                     <label for="username">{{form.password.label}}</label>
+                     {{ form.password(class='form-control') }}
+                 </div>
+     
+                 <div class="form-group">
+                     <label for="username">{{form.confirm.label}}</label>
+                     {{ form.confirm(class='form-control') }}
+                 </div>
+     
+                 <div class="form-group">
+                     {{ form.submit(class='btn btn-primary') }}
+                 </div>
+            </form>
+     
+     
+         </div>
+     </div>
+ </div>
 {% endblock body %}
     
