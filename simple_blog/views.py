@@ -3,7 +3,7 @@ from flask import render_template,request,redirect,url_for,flash
 from werkzeug.security import generate_password_hash,check_password_hash
 from .forms import SignUpForm,LoginForm
 from flask_login import login_user,logout_user,current_user,login_required
-from .models import User
+from .models import User,Post
 
 @app.route('/')
 def index():
@@ -75,9 +75,11 @@ def logout():
    logout_user()
    return redirect(url_for('index'))
 
-@app.route('/home')
+@app.route('/home',methods=['GET', 'POST'])
 def home_page():
-    context={
-       
-    }
+    if request.method == 'POST':
+        title=request.form.get('post_title')
+        content=request.form.get('post_content')
+
+
     return render_template('home.html',**context)
