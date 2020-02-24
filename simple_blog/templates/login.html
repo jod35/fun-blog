@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 {% block body %}
-    <div class="form">
+
+{% with messages = get_flashed_messages() %}    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+    
+    <div class="loginform">
         <div class="head bg-primary">
             <h3>Sign In</h3>
         </div>

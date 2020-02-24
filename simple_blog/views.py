@@ -35,11 +35,12 @@ def sign_up():
             new_user=User(
                 username=username,
                 email=email,
+                password_hash=generate_password_hash(password)
             ) 
             db.session.add(new_user)
             password_hash=generate_password_hash(password)
             db.session.commit()
-            flash("{}, creation of your account has been successful. You can now login.")
+            flash("{}, creation of your account has been successful. You can now login.".format(username))
             return redirect(url_for('login'))
             
     context={
