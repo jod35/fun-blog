@@ -76,11 +76,15 @@ def logout():
    return redirect(url_for('index'))
 
 @app.route('/home',methods=['GET', 'POST'])
-def home_page():    
-    context={}
+def home_page():
+    posts=Post.query.all()    
+    context={
+        'posts':posts
+    }
     return render_template('home.html',**context)
 
 @app.route('/add',methods=['POST'])
+@login_required
 def create_post():
     title=request.form.get('post_title')
     content_paragraph1=request.form.get('post_content1')

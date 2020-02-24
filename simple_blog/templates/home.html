@@ -1,28 +1,35 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class="row">
-<div class="col md-4 bg-primary">
+<div class="col md-4 ">
     <ul class="list-group">
-        <li class="list-group-item"><a href="">Create A Post</a></li>
-        <li class="list-group-item"><a href="">View Your Posts</a></li>
-        <li class="list-group-item"><a href="{{ url_for('logout') }}">Logout</a></li>
+        <li class="list-group-item bg-primary"><a href="">Create A Post</a></li>
+        <li class="list-group-item bg-primary"><a href="">View Your Posts</a></li>
+        <li class="list-group-item bg-primary"><a href="{{ url_for('logout') }}">Logout</a></li>
     </ul>
 </div>
 <div class="col col-md-10">
-    <h3>What's Up?</h3>
-    <form action="{{url_for('create_post')}}" method="post">
-    <div class="form-group">
-        <label for="post_title">Title</label>
-        <input type="text" name="post_title" id="" class="form-control">
-        <label for="post_content">Content Paragraph 1</label>
-        <textarea name="post_content" id="" cols="30" rows="5" class="form-control"></textarea>
-        <label for="post_content">Content Paragraph 2</label>
-        <textarea name="post_content" id="" cols="30" rows="5" class="form-control"></textarea>
-        <label for="post_content">Content Paragraph 1</label>
-        <textarea name="post_content" id="" cols="30" rows="5" class="form-control"></textarea>
-        <input type="submit" value="Post" class="btn btn-primary">
-    </div>
-    </form>
+  <table class="table table-striped">
+     <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date Posted</th>
+            <th>Actions</th>
+        </tr>
+     </thead>
+     <tbody>
+         <tr>
+            {% for post in posts %}
+            <td></td>
+            <td>{{ post.date_created.strftime("%D %M %Y")}}</td>
+            <td class="bg-success"><a href="" class=""><i class="fa fa-edit fa-2x"></i></a></td>
+            <td class="bg-danger"><a href=""><i class="fa fa-trash fa-2x" ></i></a></td>
+        {% endfor %}
+         </tr>
+     </tbody>
+          
+  </table>
+</form>
 </div>
 </div>
 {% endblock body %}

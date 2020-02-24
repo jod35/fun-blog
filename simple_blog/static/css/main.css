@@ -8,6 +8,12 @@
 .container{
     min-height: 500px;   
 }
+.list-group-item a{
+    color: white;
+}
+td i{
+    color: white;
+}
 .loginform{
     width: 40%;
     margin: auto;

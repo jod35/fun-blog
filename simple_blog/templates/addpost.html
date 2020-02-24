@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="row">
+<div class="col md-4 ">
+    <ul class="list-group">
+        <li class="list-group-item bg-primary"><a href="">Create A Post</a></li>
+        <li class="list-group-item bg-primary"><a href="">View Your Posts</a></li>
+        <li class="list-group-item bg-primary"><a href="{{ url_for('logout') }}">Logout</a></li>
+    </ul>
+</div>
+<div class="col col-md-10">
+    <h3>What's Up?</h3>
+    <form action="{{url_for('create_post')}}" method="post">
+    <div class="form-group">
+        <label for="post_title">Title</label>
+        <input type="text" name="post_title" id="" class="form-control">
+        <label for="post_content">Content Paragraph 1</label>
+        <textarea name="post_content" id="" cols="30" rows="5" class="form-control"></textarea>
+        <label for="post_content2">Content Paragraph 2</label>
+        <textarea name="post_content2" id="" cols="30" rows="5" class="form-control"></textarea>
+        <label for="post_content3">Content Paragraph 1</label>
+        <textarea name="post_content3" id="" cols="30" rows="5" class="form-control"></textarea>
+        <input type="submit" value="Post" class="btn btn-primary">
+    </div>
+    </form>
+</div>
+</div>
+{% endblock body %}
+{% extends 'base.html' %}
+{% block body %}
+<div class="row">
+<div class="col md-4 ">
+    <ul class="list-group">
+        <li class="list-group-item bg-primary"><a href="">Create A Post</a></li>
+        <li class="list-group-item bg-primary"><a href="">View Your Posts</a></li>
+        <li class="list-group-item bg-primary"><a href="{{ url_for('logout') }}">Logout</a></li>
+    </ul>
+</div>
+<div class="col col-md-10">
+    <h3>What's Up?</h3>
+    <form action="{{url_for('create_post')}}" method="post">
+    <div class="form-group">
+        <label for="post_title">Title</label>
+        <input type="text" name="post_title" id="" class="form-control">
+        <label for="post_content">Content Paragraph 1</label>
+        <textarea name="post_content" id="" cols="30" rows="5" class="form-control"></textarea>
+        <label for="post_content2">Content Paragraph 2</label>
+        <textarea name="post_content2" id="" cols="30" rows="5" class="form-control"></textarea>
+        <label for="post_content3">Content Paragraph 1</label>
+        <textarea name="post_content3" id="" cols="30" rows="5" class="form-control"></textarea>
+        <input type="submit" value="Post" class="btn btn-primary">
+    </div>
+    </form>
+</div>
+</div>
+{% endblock body %}
+    
