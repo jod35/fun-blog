@@ -9,15 +9,17 @@ class User(db.Model,UserMixin):
     username=db.Column(db.String(200),nullable=False,unique=True)
     email=db.Column(db.String(40),nullable=False)
     password_hash=db.Column(db.Text,nullable=False)
-    posts=db.relationship('Posts',backref='author',lazy=True)
+    posts=db.relationship('Post',backref='author',lazy=True)
 
     def __repr__(self):
         return self.username
 
 class Post(db.Model):
     id=db.Column(db.Integer(),primary_key=True)
-    title=db.Column(db.String(255),nullable=True)
-    content=db.Column(db.Text(),nullable=True)
+    title=db.Column(db.String(255),nullable=False)
+    content_paragraph1=db.Column(db.Text(),nullable=True)
+    content_paragraph2=db.Column(db.Text(),nullable=True)
+    content_paragraph3=db.Column(db.Text(),nullable=True)
     date_created=db.Column(db.DateTime(),default=datetime.utcnow)
     user_id=db.Column(db.Integer(),db.ForeignKey('user.id'))
 

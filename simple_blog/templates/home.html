@@ -1,17 +1,29 @@
 {% extends 'base.html' %}
 {% block body %}
-   <div class="panel-default">
-       <h3>What's Up?</h3>
-       
-     <form action="{{url_for('create_post')}}" method="post">
-        <div class="form-group">
-            <label for="post_title">Title</label>
-            <input type="text" name="post_title" id="" class="form-control">
-            <label for="post_content">Content</label>
-            <textarea name="post_content" id="" cols="30" rows="5" class="form-control"></textarea>
-            <input type="submit" value="Post" class="btn btn-primary">
-        </div>
-     </form>
-   </div>
+<div class="row">
+<div class="col md-4 bg-primary">
+    <ul class="list-group">
+        <li class="list-group-item"><a href="">Create A Post</a></li>
+        <li class="list-group-item"><a href="">View Your Posts</a></li>
+        <li class="list-group-item"><a href="{{ url_for('logout') }}">Logout</a></li>
+    </ul>
+</div>
+<div class="col col-md-10">
+    <h3>What's Up?</h3>
+    <form action="{{url_for('create_post')}}" method="post">
+    <div class="form-group">
+        <label for="post_title">Title</label>
+        <input type="text" name="post_title" id="" class="form-control">
+        <label for="post_content">Content Paragraph 1</label>
+        <textarea name="post_content" id="" cols="30" rows="5" class="form-control"></textarea>
+        <label for="post_content">Content Paragraph 2</label>
+        <textarea name="post_content" id="" cols="30" rows="5" class="form-control"></textarea>
+        <label for="post_content">Content Paragraph 1</label>
+        <textarea name="post_content" id="" cols="30" rows="5" class="form-control"></textarea>
+        <input type="submit" value="Post" class="btn btn-primary">
+    </div>
+    </form>
+</div>
+</div>
 {% endblock body %}
     

@@ -76,10 +76,25 @@ def logout():
    return redirect(url_for('index'))
 
 @app.route('/home',methods=['GET', 'POST'])
-def home_page():
-    if request.method == 'POST':
-        title=request.form.get('post_title')
-        content=request.form.get('post_content')
-
-
+def home_page():    
+    context={}
     return render_template('home.html',**context)
+
+@app.route('/add',methods=['POST'])
+def create_post():
+    title=request.form.get('post_title')
+    content_paragraph1=request.form.get('post_content1')
+    content_paragraph2=request.form.get('post_content2')
+    content_paragraph3=request.form.get('post_content3')
+    
+    new_post=Post(
+        title=title,
+        content_paragraph1=content_paragraph1,
+        content_paragraph2=content_paragraph2,
+        content_paragraph3=content_paragraph3,
+        author=current_user
+    )
+    db.session.add(new_post)
+    db.session.commit()
+    flash("Your Post is now live")
+    return redirect(url_for('home_page'))
