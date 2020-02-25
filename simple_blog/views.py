@@ -105,3 +105,12 @@ def create_post():
         flash("Your Post is now live")
         return redirect(url_for('home_page'))
     return render_template('addpost.html')
+
+
+@app.route('/update/<int:id>',methods=['GET', 'POST'])
+def update(id):
+    post_to_update=Post.query.get_or_404(id)
+    context={
+        'post_to_update':post_to_update
+    }
+    return render_template('update.html',**context)
