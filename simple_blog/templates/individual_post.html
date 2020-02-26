@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block body %}
+	<div class="jumbotron">
+		<h1 class="jumobtron-heading">{{indi_post.title}} </h1> by <p>{{indi_post.author}}</p>
+		<br>
+		<p>{{indi_post.content_paragraph1}}</p>
+			<br>
+		<p>{{indi_post.content_paragraph2}}</p>
+			<br>
+		<p>{{indi_post.content_paragraph3}}</p>
+	</div>
+{% endblock body %}

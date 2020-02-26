@@ -8,11 +8,11 @@ from .models import User, Post
 
 @app.route('/')
 def index():
-    posts=Post.query.order_by(Post.id.desc()).limit(5).all()
-    context={
-        'posts':posts
+    posts = Post.query.order_by(Post.id.desc()).limit(5).all()
+    context = {
+        'posts': posts
     }
-    return render_template('index.html',**context)
+    return render_template('index.html', **context)
 
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -133,3 +133,12 @@ def update(id):
         'post_to_update': post_to_update
     }
     return render_template('update.html', **context)
+
+
+@app.route('/<string:title>')
+def individual_post(title):
+    indi_post = Post.query.filter_by(title=title).first()
+    context = {
+        'indi_post': indi_post
+    }
+    return render_template('individual_post.html',**context)

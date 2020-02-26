@@ -4,8 +4,8 @@
     {% for post in posts %}
     <div class="panel">
         <h1>{{post.title}}</h1>
-        <p>{{ post.content_paragraph }} ..</p>
-        <a href="">Read More</a>
+        <p>{{ post.content_paragraph1}} ..</p>
+        <a href="/{{post.title}}">Read More</a>
     </div>
     {% endfor %}
         
