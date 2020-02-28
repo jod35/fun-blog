@@ -1,12 +1,22 @@
 {% extends "base.html" %}
 {% block body %}
 	<div class="jumbotron">
-		<h1 class="jumobtron-heading">{{indi_post.title}} </h1> by <p>{{indi_post.author}}</p>
+		<h2><a class="article-title" href="#">{{ indi_post.title }}</a></h2>
+		<div class="article-metadata">
+            <a class="mr-2" href="#">{{ indi_post.author }}</a>
+            <small class="text-muted">{{ indi_post.date_created }}</small>
+          </div>
 		<br>
 		<p>{{indi_post.content_paragraph1}}</p>
 			<br>
 		<p>{{indi_post.content_paragraph2}}</p>
 			<br>
 		<p>{{indi_post.content_paragraph3}}</p>
+
+		{% if current_user.is_authenticated %}
+           <a href="/update/{{indi_post.id}}">Update Post</a>			
+		{% else %}
+			<a href="{{url_for('index')}}">Back</a>
+		{% endif %}
 	</div>
 {% endblock body %}
