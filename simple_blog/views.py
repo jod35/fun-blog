@@ -4,6 +4,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from .forms import SignUpForm, LoginForm
 from flask_login import login_user, logout_user, current_user, login_required
 from .models import User, Post
+from flask_admin.contrib.sqla import ModelView
+from . import admin
+
+admin.add_view(ModelView(User,db.session))
+admin.add_view(ModelView(Post,db.session))
+
 
 
 @app.route('/')
@@ -88,7 +94,7 @@ def logout():
 @app.route('/home', methods=['GET', 'POST'])
 @login_required
 def home_page():
-    posts = Post.query.all()
+    posts = Post.query.filter_by(author=current_user)
     context = {
         'posts': posts
     }

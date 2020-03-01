@@ -6,3 +6,4 @@ class Config:
     SECRET_KEY='0043e3594ceb57e473b15e0b2c74e035e45a018533caddd8654a20b92a0f8f31'
     DEBUG=True
     AVATARS_GRAVATAR_DEFAULT='identicon'
+    FLASK_ADMIN_SWATCH='cerulean'
