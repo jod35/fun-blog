@@ -3,13 +3,13 @@ from flask import render_template, request, redirect, url_for, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from .forms import SignUpForm, LoginForm
 from flask_login import login_user, logout_user, current_user, login_required
-from .models import User, Post
+from .models import User, Post, Comment
 from flask_admin.contrib.sqla import ModelView
 from . import admin
 
-admin.add_view(ModelView(User,db.session))
-admin.add_view(ModelView(Post,db.session))
-
+admin.add_view(ModelView(User, db.session))
+admin.add_view(ModelView(Post, db.session))
+admin.add_view(ModelView(Comment, db.session))
 
 
 @app.route('/')
@@ -33,12 +33,8 @@ def sign_up():
         user_exists = User.query.filter_by(username=username).first()
         email_taken = User.query.filter_by(email=email).first()
 
-        if user_exists:
-            flash("The username {} is already taken".format(username))
-            return redirect(url_for('sign_up'))
-
-        elif email_taken:
-            flash("The email is already used")
+        if user_exists or email_taken:
+            flash("The username or email is already taken")
             return redirect(url_for('sign_up'))
 
         elif password != confirm:
@@ -147,11 +143,11 @@ def individual_post(title):
     context = {
         'indi_post': indi_post
     }
-    return render_template('individual_post.html',**context)
+    return render_template('individual_post.html', **context)
+
 
 @app.route('/delete/<int:id>')
 def delete_post(id):
-    post_to_delete=Post.query.get_or_404(id)
-    db.session.delete(post_to_delete)
-    db.session.commit()
+    post_to_delet = Post.query.get_or_404(id)
+    db.session.delete(post_to_delet)
     return redirect(url_for('home_page'))

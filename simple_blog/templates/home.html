@@ -3,9 +3,9 @@
 <div class="row">
 <div class="col md-4 ">
     <ul class="list-group">
-        <li class="list-group-item bg-primary"><a href="{{url_for('create_post')}}">Create A Post</a></li>
-        <li class="list-group-item bg-primary"><a href="">View Your Posts</a></li>
-        <li class="list-group-item bg-primary"><a href="{{ url_for('logout') }}">Logout</a></li>
+        <li class="list-group-item bg-primary"><a href="{{url_for('create_post')}}"><i class="fa fa-pencil fa-2x"></i> Create A Post</a></li>
+        <li class="list-group-item bg-primary"><a href=""> <i class="fa fa-eye fa-2x"></i>  View Your Posts</a></li>
+        <li class="list-group-item bg-primary"><a href="{{ url_for('logout') }}"><i class="fa fa-sign-out fa-2x"></i> Logout</a></li>
     </ul>
 </div>
 <div class="col col-md-10">
@@ -25,7 +25,7 @@
            <td>{{post.title}}</td>
            <td>{{ post.date_created.strftime("%D %M %Y")}}</td>
            <td class=""><a href="/update/{{post.id}}" class=""><i class="fa fa-edit fa-2x success"></i></a></td>
-           <td class=""><a href=""><i class="fa fa-trash fa-2x danger" ></i></a></td>
+           <td class=""><a href="/delete/{{post.id}}"><i class="fa fa-trash fa-2x danger" ></i></a></td>
        </tr>
        {% endfor %}
      

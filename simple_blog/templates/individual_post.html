@@ -14,9 +14,18 @@
 		<p>{{indi_post.content_paragraph3}}</p>
 
 		{% if current_user.is_authenticated %}
-           <a href="/update/{{indi_post.id}}">Update Post</a>			
+	           {% if indi_post.author == current_user %}
+	           	   <a href="/update/{{indi_post.id}}">Update Post</a>
+	           {% endif %}
+           <br>
+		   <form action="" method="post">
+		   	  <textarea name="comment" class="form-control"></textarea>
+		      <button type="submit" class="btn btn-primary">Comment</button>
+		   </form>			
 		{% else %}
+		    <a href="">Comment</a>
 			<a href="{{url_for('index')}}">Back</a>
 		{% endif %}
+		
 	</div>
 {% endblock body %}
