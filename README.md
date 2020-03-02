@@ -7,6 +7,7 @@ A blog app built with an intension of having fun with Python and the Flask Frame
 - Flask-SQLAlchemy
 - Flask-WTF
 - Boostrap 4
+- MySQL Database
 
 # To run,
  - `git clone https://github.com/jod35/fun-blog.git`
@@ -16,7 +17,7 @@ A blog app built with an intension of having fun with Python and the Flask Frame
  - `python3 app.py`
  
  # To set up the database
- - Change following in `simple_blog/config.py`
- `my_pw=<db_pw>`
- `SQLALCHEMY_DATABASE_URI='mysql://<db_user>:{}@localhost/simple'.format(my_pw)`
- where my_pw is your database user password
+ - `SQLALCHEMY_DATABASE_URI='mysql://<your_username>:<yourpassword>@localhost/<your_db>'
+ - `export FLASKAPP=app.py` in the terminal
+ - `flask db upgrade` in the terminal 
+
