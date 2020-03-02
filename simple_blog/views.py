@@ -148,3 +148,10 @@ def individual_post(title):
         'indi_post': indi_post
     }
     return render_template('individual_post.html',**context)
+
+@app.route('/delete/<int:id>')
+def delete_post(id):
+    post_to_delete=Post.query.get_or_404(id)
+    db.session.delete(post_to_delete)
+    db.session.commit()
+    return redirect(url_for('home_page'))
