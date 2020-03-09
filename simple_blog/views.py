@@ -71,6 +71,9 @@ def login():
 
     user_exist = email_exists or username_exists
 
+    if not user_exist:
+        flash("The account doesnot exists!!")
+
     if user_exist and check_password_hash(user_exist.password_hash, password):
         login_user(user_exist)
         return redirect(url_for('home_page'))

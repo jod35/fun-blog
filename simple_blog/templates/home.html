@@ -10,6 +10,16 @@
 </div>
 <div class="col col-md-10">
 
+{% with messages = get_flashed_messages() %}    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
 {% if  posts %}
 <table class="table table-striped">
     <thead class="bg-primary">

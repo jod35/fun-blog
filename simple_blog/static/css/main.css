@@ -3,12 +3,14 @@
 }
 
 .media{
-    background-color:rgba(30, 143, 255, 0.219);
+    background-color:rgba(192, 215, 238, 0.219);
   
     padding: 20px;
 }
+.options{
+    background-color: lightgray;
+}
 .jumbotron {
-    background-color:rgba(30, 143, 255, 0.219);
     border-radius: 7px;
 }
 .footer{
