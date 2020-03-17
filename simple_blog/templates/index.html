@@ -22,7 +22,7 @@
     <ul class="list-group ">
       
       {% for post in posts %}
-      <li class="list-group-item bg-primary"><a href="">{{post.title}}</a></li>
+      <li class="list-group-item bg-primary"><a href="/{{post.title}}">{{post.title}}</a></li>
       <br>
       {% endfor %}
         
@@ -30,4 +30,5 @@
   </div>
 </div>     
 {% endblock body %}
+
     

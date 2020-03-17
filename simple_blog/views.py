@@ -124,6 +124,7 @@ def create_post():
 
 
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
+@login_required
 def update(id):
     post_to_update = Post.query.get_or_404(id)
     if request.method == 'POST':
@@ -150,7 +151,21 @@ def individual_post(title):
 
 
 @app.route('/delete/<int:id>')
+@login_required
 def delete_post(id):
     post_to_delet = Post.query.get_or_404(id)
     db.session.delete(post_to_delet)
     return redirect(url_for('home_page'))
+
+@app.route('/comment/<int:id>',methods=['POST'])
+@login_required
+def add_comment(id):
+    comment=request.form.get('comment')
+    post=db.query.get(id)
+    author=current_user
+
+    new_comment=Comment(comment=comment,post=post,author=author)
+    db.session.add(new_comment)
+    db.session.commit()
+    return redirect('/')
+
