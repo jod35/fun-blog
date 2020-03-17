@@ -17,11 +17,33 @@
 	           {% if indi_post.author == current_user %}
 	           	   <a href="/update/{{indi_post.id}}">Update Post</a>
 	           {% endif %}
-           <br>
-		   <form action="/comment/{{indi_post.id}" method="post">
-		   	  <textarea name="comment" class="form-control"></textarea>
-		      <button type="submit" class="btn btn-primary">Comment</button>
-		   </form>			
+		   <br>
+		   <br>
+		   <form action="/comment/{{indi_post.id}}" method="post">
+			 <div class="form-group">
+				 Place Your comment here
+			 </div>
+		   	  <div class="form-group">
+				<textarea name="comment" class="form-control"></textarea>
+				<button type="submit" class="btn btn-primary">Comment</button>
+			  </div>
+		   </form>
+		   <br><br>
+		   <ul class="list-unstyled">
+			
+			{% for comment in comments %}
+				<li class="media">
+					<img class="mr-3" src="{{url_for('static',filename='images/index.jpeg')}}" alt="Generic placeholder image" width="60">
+					<div class="media-body">
+					<h5 class="mt-0 mb-1">{{ comment.author }}</h5>
+					{{ comment.comment_body }}
+					</div>
+				</li>
+				<br>
+			{% endfor %}
+				
+		
+		   </ul>	
 		{% else %}
 		    <a href="">Comment</a>
 			<a href="{{url_for('index')}}">Back</a>

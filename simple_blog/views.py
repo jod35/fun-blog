@@ -144,8 +144,10 @@ def update(id):
 @app.route('/<string:title>')
 def individual_post(title):
     indi_post = Post.query.filter_by(title=title).first()
+    comments=Comment.query.filter_by(post=indi_post).all()
     context = {
-        'indi_post': indi_post
+        'indi_post': indi_post,
+        'comments':comments
     }
     return render_template('individual_post.html', **context)
 
@@ -161,10 +163,9 @@ def delete_post(id):
 @login_required
 def add_comment(id):
     comment=request.form.get('comment')
-    post=db.query.get(id)
+    post=Post.query.get(id)
     author=current_user
-
-    new_comment=Comment(comment=comment,post=post,author=author)
+    new_comment=Comment(comment_body=comment,post=post,author=author)
     db.session.add(new_comment)
     db.session.commit()
     return redirect('/')

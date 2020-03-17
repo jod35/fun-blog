@@ -5,12 +5,12 @@
     {% for post in posts %}
     <article class="jumbotron">
         <div class="media-body">
-          <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+          <h2><a class="article-title" href="/{{post.title}}">{{ post.title }}</a></h2>
           <div class="article-metadata">
             <a class="mr-2" href="#">{{ post.author }}</a>
             <small class="text-muted">{{ post.date_created }}</small>
           </div>
-          <p class="article-content">{{ post.content_paragraph1 }} ....</p>
+        
           <a href="/{{post.title}}">Read More</a>
         </div>
       </article> 
