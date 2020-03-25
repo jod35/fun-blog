@@ -152,7 +152,7 @@ def individual_post(title):
     return render_template('individual_post.html', **context)
 
 
-@app.route('/delete/<int:id>')
+@app.route('/delete-post/<int:id>')
 @login_required
 def delete_post(id):
     post_to_delet = Post.query.get_or_404(id)
