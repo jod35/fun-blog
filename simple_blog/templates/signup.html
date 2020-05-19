@@ -17,7 +17,7 @@
                  {% endif %}
              {% endwith %}
 
-             <form action="{{url_for('sign_up')}}" method="post">
+             <form action="{{url_for('sign_up')}}" method="post" id=signup_form>
                  <div class="form-group">
                      {{ form.hidden_tag() }}
                      <label for="username">{{form.username.label}}</label>
@@ -44,7 +44,12 @@
                  <div class="form-group">
                      {{ form.submit(class='btn btn-primary') }}
                  </div>
+
+                 <br>
+
+                 <small>Already have an account, <a href="url_for('login')">Sign In</a></small>
             </form>
+
      
      
          </div>

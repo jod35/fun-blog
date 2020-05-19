@@ -157,6 +157,7 @@ def individual_post(title):
 def delete_post(id):
     post_to_delet = Post.query.get_or_404(id)
     db.session.delete(post_to_delet)
+    db.session.commit()
     return redirect(url_for('home_page'))
 
 @app.route('/comment/<int:id>',methods=['POST'])
@@ -169,4 +170,3 @@ def add_comment(id):
     db.session.add(new_comment)
     db.session.commit()
     return redirect('/')
-

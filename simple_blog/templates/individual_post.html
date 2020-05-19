@@ -4,7 +4,7 @@
 		<h2><a class="article-title" href="#">{{ indi_post.title }}</a></h2>
 		<div class="article-metadata">
             <a class="mr-2" href="#">{{ indi_post.author }}</a>
-            <small class="text-muted">{{ indi_post.date_created }}</small>
+            <small class="text-muted">{{ indi_post.date_created.strftime('%b %d %Y') }}</small>
           </div>
 		<br>
 		<p>{{indi_post.content_paragraph1}}</p>

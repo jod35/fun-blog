@@ -19,7 +19,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #038bec;">
+        <nav class="navbar fixed navbar-expand-sm navbar-dark" style="background-color: #038bec;">
             <a class="navbar-brand" href="{{ url_for('index') }}"><h1>Blog</h1></a>
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                 aria-expanded="false" aria-label="Toggle navigation"></button>
@@ -62,5 +62,6 @@
         </div>      
     </footer>
     <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{url_for('static',filename='js/main.js')}}"></script>
 </body>
 </html>

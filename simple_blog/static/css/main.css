@@ -4,7 +4,8 @@
 
 .media{
     background-color:rgba(192, 215, 238, 0.219);
-  
+    height: 200px;
+    box-shadow: 5px 5px 5px 5px rgba(70, 155, 240, 0.37); 
     padding: 20px;
 }
 .options{
@@ -44,10 +45,20 @@ td i{
 }
 .main{
     padding: 20px;
+    margin-top:70px ;
 }
 .error{
     color: red;
 }
 th{
     color: white;
+}
+
+.fixed{
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    height: px;
 }

@@ -1,34 +1,32 @@
 {% extends 'base.html' %}
 {% block body %}
-<div class="row">
+<div class="row ">
   <div class="col-md-8">
     {% for post in posts %}
-    <article class="jumbotron">
+    <article class="media">
         <div class="media-body">
           <h2><a class="article-title" href="/{{post.title}}">{{ post.title }}</a></h2>
           <div class="article-metadata">
             <a class="mr-2" href="#">{{ post.author }}</a>
-            <small class="text-muted">{{ post.date_created }}</small>
+            <small class="text-muted">{{ post.date_created.strftime('%b %d %Y') }}</small>
           </div>
-        
+
           <a href="/{{post.title}}">Read More</a>
         </div>
-      </article> 
+      </article>
       <br>
     {% endfor %}
   </div>
   <div class="col-md-4">
     <h3>Recent Posts</h3>
     <ul class="list-group ">
-      
+
       {% for post in posts %}
       <li class="list-group-item bg-primary"><a href="/{{post.title}}">{{post.title}}</a></li>
       <br>
       {% endfor %}
-        
+
     </ul>
   </div>
-</div>     
+</div>
 {% endblock body %}
-
-    
