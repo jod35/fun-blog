@@ -4,7 +4,7 @@ from wtforms import StringField,PasswordField,SubmitField,SelectField
 
 class SignUpForm(FlaskForm):
     username=StringField("Username",validators=[DataRequired("Please fill the field")])
-    email=StringField("Email",validators=[DataRequired("Please fill the field."),Email("Must be an email")])
+    email=StringField("Email",validators=[DataRequired("Please fill the field.")])
     password=PasswordField("Password",validators=[DataRequired("Please fill in the field"),EqualTo("confirm","Passwords do not match")]) 
     confirm=PasswordField("Confirm Password",validators=[DataRequired()])
     submit=SubmitField("SignUp")
